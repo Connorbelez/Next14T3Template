@@ -31,7 +31,7 @@ export default function RootLayout({
           <TRPCReactProvider cookies={cookies().toString()}>
             <Providers>
 
-            <main className="text-foreground bg-background mx-auto flex-grow ">
+            <main vaul-drawer-wrapper="" className="text-foreground bg-background mx-auto flex-grow ">
             <Nav />
               <section className="max-w-screen-2xl px-5 mx-auto flex-grow">
                 {children}
