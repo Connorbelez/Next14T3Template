@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import clsx from "clsx";
 
 import Providers from "@/app/_components/Providers";
 import Nav from "@/app/_components/Nav";
@@ -27,16 +28,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body >
+      <body className={clsx(
+					"bg-background font-sans antialiased ",
+				)} >
           <TRPCReactProvider cookies={cookies().toString()}>
             <Providers>
+            <div vaul-drawer-wrapper=""  className="relative bg-background flex flex-col items-center h-full w-full">
 
-            <main vaul-drawer-wrapper="" className="text-foreground bg-background mx-auto flex-grow ">
-            <Nav />
-              <section className="max-w-screen-2xl px-5 mx-auto flex-grow">
-                {children}
-              </section>
-            </main>
+              <Nav />
+              <main className=" mx-auto w-full flex flex-col content-center flex-grow">
+                  {children}
+              </main>
+            </div>
 
             </Providers>
           </TRPCReactProvider>
